@@ -1,0 +1,29 @@
+import requests
+import json
+import wgetloop
+import azure_income
+import time
+import os
+import change
+import upload_file
+import time
+
+count=0
+while True:
+    now=time.localtime()
+    print(str(now.tm_year)+'-'+(str(now.tm_mon)+'-'+str(now.tm_mday))+'  '+str(now.tm_hour)+':'+str(now.tm_min)+':'+str(now.tm_sec))
+    wgetloop.capture()
+    time.sleep(0.5)
+    print('captured')
+    upload_file.upload()
+    time.sleep(0.5)
+    azure_income.azurl()
+    print('jasoned')
+    time.sleep(1)
+    os.remove('/home/pi/capture.jpg')
+    change.parsing()
+    print('parsined')
+    count+=1
+    print(count)
+        
+    
